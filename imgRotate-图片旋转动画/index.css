@@ -1,0 +1,28 @@
+.picture-wrapper{}
+.picture-content{
+  width: 200px;
+  height: 200px;
+  background: url("./images/bg2.png");
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.rotate-content{
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.rotate-content img{
+  width: 170px;
+  height: 170px;
+}
+.box-rotate{
+  animation: rotate 15s infinite linear;
+}
+/* 旋转动画 */
+@keyframes rotate{
+    0%{transform: rotate(0deg)}
+    50%{transform: rotate(180deg)}
+    100%{transform: rotate(360deg);}
+}

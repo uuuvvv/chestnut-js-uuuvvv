@@ -1,0 +1,26 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+ul,
+li {
+  text-decoration: none;
+}
+
+.banner-main {
+  width: 300px;
+  height: 100px;
+  overflow: hidden;
+  position: relative;
+}
+
+ul {
+  display: flex;
+  position: absolute;
+}
+
+ul li img {
+  width: 300px;
+  height: 100px;
+}

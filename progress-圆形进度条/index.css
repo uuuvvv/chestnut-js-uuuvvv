@@ -1,0 +1,9 @@
+body{
+    background: #4EC2EA;
+}
+.circle {
+    width: 270px;
+    height: 270px;
+    position: relative;
+    transform: rotate(-90deg);
+}
