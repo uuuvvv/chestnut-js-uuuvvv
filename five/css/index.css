@@ -1,0 +1,14 @@
+.canvas-wrap{
+    width: 1000px;
+    height: 1000px;
+    margin: 0 auto;
+    background-image: url("../static/img/夜景.jpg");
+    overflow: hidden;
+}
+.canvas-content {
+    box-sizing: border-box;
+    width: 800px;
+    height: 800px;
+    margin: 100px auto;
+    background-color: rgba(11, 50, 59, 0.9);
+}
