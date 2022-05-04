@@ -1,7 +1,4 @@
 ((w) => {
-
-
-
   // /** @type {HTMLCanvasElement} */
   // 获取canvas标签元素
   let canvasDom = document.getElementById('canvas')
