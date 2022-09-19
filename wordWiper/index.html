@@ -5,10 +5,79 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <style>
+    .swiper-box{
+      width: 100%;
+      position: relative;
+      background-color: aquamarine;
+      height: 20px;
+      overflow: hidden;
+    }
+    .word{
+      white-space:nowrap;
+    }
+    .word-content{
+      position: absolute;
+      left: 0;
+      top: 0;
+      margin: 0;
+    }
+    .word-center{
+      position: absolute;
+      left: 50%;
+      top: 0;
+      transform: translateX(-50%);
+    }
+  </style>
 </head>
 <body>
   <marquee width = "100%"  bgcolor = "pink" >     
     文本从右向左滚动后，在从左向右滚动的例子......  
  </marquee> 
+
+ <div class="swiper-box">
+  <!-- <p class="word word-content" id="wordBox">文本从右向左滚动后，在从左向右滚动的例子......文本从右向左滚动后，在从左向右滚动的例子......文本从右向左滚动后，在从左向右滚动的例子......文本从右向左滚动后，在从左向右滚动的例子......文本从右向左滚动后，在从左向右滚动的例子......文本从右向左滚动后，在从左向右滚动的例子......文本从右向左滚动后，在从左向右滚动的例子......文本从右向左滚动后，在从左向右滚动的例子......文本从右向左滚动后，在从左向右滚动的例子...... </p> -->
+  <p class="word word-content" id="wordBox">文本从右向左滚动后，在从左向右滚动的例子...... </p>
+ </div>
 </body>
+<script>
+  let timer = null;
+  
+  
+  function reSizeScreenFn(){
+  if(timer)clearInterval(timer);
+    //获取dom
+  let swiperBox = document.getElementsByClassName('swiper-box')[0];
+  let wordBox= document.getElementById('wordBox');
+  console.log('box',swiperBox,wordBox);
+  //获取box宽度
+  let swiperW = swiperBox.clientWidth;
+  let wordW = wordBox.clientWidth;
+  console.log('width',swiperW,wordW);
+    if(swiperW>wordW){
+      console.log(1)
+      wordBox.style.left = `50%`
+      //不需滚动，文字居中
+      wordBox.className ="word word-content word-center";
+     
+    }else{
+      console.log(2)
+      //需滚动
+      wordBox.className = "word word-content";
+      let x = 0;
+
+      timer = setInterval(()=>{
+        let diffVal = wordW-swiperW;
+        wordBox.style.left = x+`px`
+        x-=0.5
+        if(Math.abs(x)>wordW){
+          x=swiperW
+        }
+        console.log(diffVal,wordBox.style.left)
+      },10)
+    }
+  }
+  reSizeScreenFn();
+  window.addEventListener('resize', reSizeScreenFn)
+</script>
 </html>
